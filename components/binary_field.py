@@ -52,5 +52,5 @@ class BinaryField:
         return self.__selected.get()
 
     def reboot_current_value(self) -> None:
-        """Sets the current value to be 'False'"""
+        """Sets the current value to be 'False'."""
         self.__selected.set(False)

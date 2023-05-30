@@ -44,7 +44,7 @@ class DateField:
         }
 
     def reboot_fields(self) -> None:
-        """Restarts all ComboBoxes"""
+        """Restarts all ComboBoxes."""
         self.__day.reboot_select()
         self.__month.reboot_select()
         self.__year.reboot_select()
