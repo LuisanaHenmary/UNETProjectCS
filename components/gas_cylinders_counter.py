@@ -11,7 +11,7 @@ class GasCylindersCounter:
             __cylinder_counter (IntVar): Quantity of gas cylinders
 
     """
-    def __init__(self, container, cylinder_kg, coordinates=(0, 0)):
+    def __init__(self, container, cylinder_kg, coordinates=(0, 0)) -> None:
         """Initializes the object of type GasCylindersCounter.
 
                 Args:
@@ -27,10 +27,10 @@ class GasCylindersCounter:
         gas_count = tkr.Spinbox(container, from_=0, to=10, textvariable=self.__cylinder_counter, width=4)
         gas_count.place(x=(pos_x+40), y=pos_y)
 
-    def get_counter(self):
+    def get_counter(self) -> int:
         """Returns the number of cylinders, of n Kg, purchased."""
         return self.__cylinder_counter.get()
 
-    def reboot_counter(self):
+    def reboot_counter(self) -> None:
         """Returns the counter to 0"""
         self.__cylinder_counter.set(0)
