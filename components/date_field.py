@@ -9,9 +9,9 @@ class DateField:
     """It is a field, in the form, that allows selecting the day, month and year of a specific date.
 
         Attributes:
-            __day (int): The selected day of the month
-            __month (int): The selected month
-            __year (int): The selected year
+            __day (SelectField): The selected day of the month
+            __month (SelectField): The selected month
+            __year (SelectField): The selected year
     """
     def __init__(self, container, min_year=1900, coordinates=(0, 0)) -> None:
         """Initializes the object of type BinaryField.

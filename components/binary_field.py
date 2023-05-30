@@ -10,7 +10,7 @@ class BinaryField:
     and the other has the value 'False'.
 
         Attributes:
-            __selected (bool): The selected current value
+            __selected (BooleanVar): The selected current value
     """
     def __init__(self, container, field_name, binary_options=("Si", "No"), coordinates=(0, 0)) -> None:
         """Initializes the object of type BinaryField.
@@ -20,7 +20,7 @@ class BinaryField:
                     field_name (str): Is the name of the field in the form
                     binary_options (tuple): There are two options for every Radio Button
                     coordinates (tuple): The 'x' and 'y' locations in the container
-                """
+        """
         pos_x, pos_y = coordinates
         op1, op2 = binary_options
         self.__selected = tkr.BooleanVar()

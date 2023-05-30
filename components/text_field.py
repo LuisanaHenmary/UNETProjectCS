@@ -9,7 +9,7 @@ class TextField:
     """Represents a field, in the form, where an alphanumeric value is entered.
 
         Attributes:
-            __text_value (str): Is the value currently entered
+            __text_value (StringVar): Is the value currently entered
     """
     def __init__(self, container, name_field, coordinates=(0, 0)) -> None:
         """Initializes the object of type TextField.
@@ -18,7 +18,7 @@ class TextField:
                     container (Widget): It is where the component will be contained
                     name_field (str): Is the name of the field in the form
                     coordinates (tuple): The 'x' and 'y' locations in the container
-                """
+        """
         pos_x, pos_y = coordinates
         self.__text_value = tkr.StringVar()
 

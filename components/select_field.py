@@ -9,7 +9,7 @@ class SelectField:
     """It represents a field that allows selecting one of the multiple options from a list.
 
         Attributes:
-            __int_value (int): The selected current value
+            __int_value (IntVar): The selected current value
             __select_value (Combobox): It is to manipulate the properties of the ComboBox
     """
     def __init__(self, container, name_field, options, max_leng, coordinates=(0, 0)) -> None:
