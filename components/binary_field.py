@@ -25,21 +25,26 @@ class BinaryField:
         op1, op2 = binary_options
         self.__selected = tkr.BooleanVar()
 
-        label_field = ttk.Label(container, text=field_name, background="White")
+        label_field = ttk.Label(container, text=field_name, style="BigLabel.TLabel")
         label_field.place(x=pos_x, y=pos_y)
+
+        style_radio = ttk.Style()
+        style_radio.configure("BothRadio.TRadiobutton", font="Verdana 12", background="White")
 
         option1 = ttk.Radiobutton(
             container,
             text=op1,
             value=True,
-            variable=self.__selected
+            variable=self.__selected,
+            style="BothRadio.TRadiobutton"
         )
 
         option2 = ttk.Radiobutton(
             container,
             text=op2,
             value=False,
-            variable=self.__selected
+            variable=self.__selected,
+            style="BothRadio.TRadiobutton"
         )
 
         option1.place(x=pos_x, y=pos_y+30)

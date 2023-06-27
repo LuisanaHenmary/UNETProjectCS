@@ -1,4 +1,5 @@
 import tkinter as tkr
+from tkinter import ttk
 
 
 """Gas Cylinders Counter module"""
@@ -22,10 +23,12 @@ class GasCylindersCounter:
         pos_x, pos_y = coordinates
         self.__cylinder_counter = tkr.IntVar()
         self.reboot_counter()
-        kg_label = tkr.Label(container, text=cylinder_kg, background="White")
+
+        kg_label = ttk.Label(container, text=cylinder_kg, style="CounterLabel.TLabel")
         kg_label.place(x=pos_x, y=pos_y)
-        gas_count = tkr.Spinbox(container, from_=0, to=10, textvariable=self.__cylinder_counter, width=4)
-        gas_count.place(x=(pos_x+40), y=pos_y)
+
+        gas_count = tkr.Spinbox(container, from_=0, to=10, textvariable=self.__cylinder_counter, width=4, font="Verdana 12")
+        gas_count.place(x=(pos_x+60), y=pos_y)
 
     def get_counter(self) -> int:
         """Returns the number of cylinders, of n Kg, purchased."""

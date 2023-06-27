@@ -1,4 +1,4 @@
-from .select_field import (SelectField, ttk)
+from components.select_field import (SelectField, ttk)
 import datetime
 
 
@@ -27,12 +27,12 @@ class DateField:
         current_year = datetime.date.today().year
         years = [x for x in range(min_year, current_year + 1)]
 
-        main_label = ttk.Label(container, text="Fecha de nacimiento", background="White")
+        main_label = ttk.Label(container, text="Fecha de nacimiento", style="BigLabel.TLabel")
         main_label.place(x=pos_x, y=pos_y)
 
-        self.__day = SelectField(container, "Día:", days, 5, (pos_x, pos_y+30))
-        self.__month = SelectField(container, "Mes:", months, 5, (pos_x, pos_y + 60))
-        self.__year = SelectField(container, "Año:", years, 5, (pos_x, pos_y + 90))
+        self.__day = SelectField(container, "Día:", days, 5, (pos_x, pos_y+40))
+        self.__month = SelectField(container, "Mes:", months, 5, (pos_x, pos_y + 80))
+        self.__year = SelectField(container, "Año:", years, 5, (pos_x, pos_y + 120))
 
     def get_date(self) -> dict[str, int]:
         """Returns a dictionary with the values of the currently

@@ -22,11 +22,11 @@ class AddressField:
         """
         pos_x, pos_y = coordinates
 
-        address_label = ttk.Label(container, text="Dirección:", background="White")
+        address_label = ttk.Label(container, text="Dirección:", style="TextLabel.TLabel")
         address_label.place(x=pos_x, y=pos_y)
 
-        self.__input_field = tkr.Text(container, height=6, width=33)
-        self.__input_field.place(x=(pos_x+60), y=pos_y)
+        self.__input_field = tkr.Text(container, height=6, width=40)
+        self.__input_field.place(x=pos_x, y=pos_y+20)
 
     def get_address(self) -> str:
         """Return the value currently entered."""

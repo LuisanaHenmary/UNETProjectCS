@@ -25,12 +25,12 @@ class SelectField:
         pos_x, pos_y = coordinates
         self.__int_value = tkr.IntVar()
 
-        text_label = ttk.Label(container, text=name_field, background="White")
+        text_label = ttk.Label(container, text=name_field, style="SelectLabel.TLabel")
         text_label.place(x=pos_x, y=pos_y)
 
-        self.__select_value = ttk.Combobox(container, textvariable=self.__int_value)
+        self.__select_value = ttk.Combobox(container, textvariable=self.__int_value, font="Verdana 10")
         self.__select_value['state'] = "readonly"
-        self.__select_value.place(x=(pos_x+85), y=pos_y)
+        self.__select_value.place(x=(pos_x+50), y=pos_y)
         self.__select_value['values'] = options
         self.reboot_select()
         self.__select_value.config(width=max_leng, height=26)

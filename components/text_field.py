@@ -21,12 +21,10 @@ class TextField:
         """
         pos_x, pos_y = coordinates
         self.__text_value = tkr.StringVar()
-
-        text_label = ttk.Label(container, text=name_field, background="White")
+        text_label = ttk.Label(container, text=name_field, style="TextLabel.TLabel")
         text_label.place(x=pos_x, y=pos_y)
-
-        text_entry = ttk.Entry(container, textvariable=self.__text_value)
-        text_entry.place(x=(pos_x+100), y=pos_y)
+        text_entry = ttk.Entry(container, textvariable=self.__text_value, width=28, font="Verdana 11")
+        text_entry.place(x=(pos_x+120), y=pos_y)
 
     def get_text_value(self) -> str:
         """Return the value currently entered."""

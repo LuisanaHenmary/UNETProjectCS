@@ -1,4 +1,4 @@
-from .gas_cylinders_counter import GasCylindersCounter
+from components.gas_cylinders_counter import GasCylindersCounter
 from tkinter import ttk
 
 
@@ -27,15 +27,15 @@ class GasCylindersForm:
         label_form = ttk.Label(
             container,
             text="Cantidad de bombonas de gas\ndomestico que posee de:",
-            background="White"
+            style="BigLabel.TLabel"
         )
 
         label_form.place(x=pos_x, y=pos_y)
 
-        self.__cylinders_10kg = GasCylindersCounter(container, "10 Kg:", (pos_x + 20, pos_y + 50))
-        self.__cylinders_18kg = GasCylindersCounter(container, "18 Kg:", (pos_x + 120, pos_y + 50))
-        self.__cylinders_27kg = GasCylindersCounter(container, "27 Kg:", (pos_x + 20, pos_y + 87))
-        self.__cylinders_43kg = GasCylindersCounter(container, "43 Kg:", (pos_x + 120, pos_y + 87))
+        self.__cylinders_10kg = GasCylindersCounter(container, "10 Kg:", (pos_x + 20, pos_y + 70))
+        self.__cylinders_18kg = GasCylindersCounter(container, "18 Kg:", (pos_x + 150, pos_y + 70))
+        self.__cylinders_27kg = GasCylindersCounter(container, "27 Kg:", (pos_x + 20, pos_y + 123))
+        self.__cylinders_43kg = GasCylindersCounter(container, "43 Kg:", (pos_x + 150, pos_y + 125))
 
     def get_counters(self) -> dict[str, int]:
         """Returns a dictionary with the number of cylinders purchased, with their respective type."""

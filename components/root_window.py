@@ -10,5 +10,5 @@ class RootWindow(tkr.Tk):
         """Initializes the object of type RootWindow."""
         super().__init__()
         super().title("AppName")
-        self.config(width=1440, height=780)
+        self.config(width=1390, height=570)
         self.resizable(False, False)
