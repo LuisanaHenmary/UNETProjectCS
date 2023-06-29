@@ -29,7 +29,7 @@ class BinaryField:
         label_field.place(x=pos_x, y=pos_y)
 
         style_radio = ttk.Style()
-        style_radio.configure("BothRadio.TRadiobutton", font="Verdana 12", background="White")
+        style_radio.configure("BothRadio.TRadiobutton", font="Verdana 12", background="#99CCFF")
 
         option1 = ttk.Radiobutton(
             container,

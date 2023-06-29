@@ -25,8 +25,8 @@ class ObservationsField:
         observations_label = ttk.Label(container, text="Observaciones:", style="TextLabel.TLabel")
         observations_label.place(x=pos_x, y=pos_y)
 
-        self.__input_field = tkr.Text(container, height=9, width=100)
-        self.__input_field.place(x=pos_x, y=pos_y+20)
+        self.__input_field = tkr.Text(container, height=9, width=65, background="#CCE5FF")
+        self.__input_field.place(x=pos_x, y=pos_y+30)
 
     def get_observatios(self) -> str:
         """Return the value currently entered."""
