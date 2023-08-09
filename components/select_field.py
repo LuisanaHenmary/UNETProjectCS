@@ -42,3 +42,10 @@ class SelectField:
     def reboot_select(self) -> None:
         """Makes the selected value the first option in the ComboBox."""
         self.__select_value.current(0)
+
+    def changed_event(self, event_method) -> None:
+        """Event that is executed when one of the options is selected.
+                Args:
+                    event_method (method): It is an event.
+        """
+        self.__select_value.bind('<<ComboboxSelected>>', event_method)
