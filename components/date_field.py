@@ -11,16 +11,16 @@ class DateField:
         Attributes:
             __day (SelectField): The selected day of the month
             __month (SelectField): The selected month
-            __year (SelectField): The selected year
-    """
+            __year (SelectField): The selected year"""
+
     def __init__(self, container, min_year=1900, coordinates=(0, 0)) -> None:
         """Initializes the object of type BinaryField.
 
-                Args:
-                    container (Widget): It is where the component will be contained
-                    min_year (int): First choice for the year
-                    coordinates (tuple): The 'x' and 'y' locations in the container
-        """
+            Args:
+                container (Widget): It is where the component will be contained
+                min_year (int): First choice for the year
+                coordinates (tuple): The 'x' and 'y' locations in the container"""
+
         pos_x, pos_y = coordinates
         days = [x for x in range(1, 32)]
         months = [x for x in range(1, 13)]
@@ -37,6 +37,7 @@ class DateField:
     def get_date(self) -> dict[str, int]:
         """Returns a dictionary with the values of the currently
         selected day, month, and year."""
+
         return {
             "day": self.__day.get_choise_int(),
             "month": self.__month.get_choise_int(),
@@ -45,6 +46,7 @@ class DateField:
 
     def reboot_fields(self) -> None:
         """Restarts all ComboBoxes."""
+
         self.__day.reboot_select()
         self.__month.reboot_select()
         self.__year.reboot_select()

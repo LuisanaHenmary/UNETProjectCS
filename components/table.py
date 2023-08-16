@@ -1,13 +1,23 @@
 import tkinter as tkr
 from tkinter import ttk
 
+"""This module has the table of records."""
+
 
 class Table(ttk.Treeview):
-    def __init__(self, contariner, coordinates=(0, 0)):
-        pos_x, pos_y = coordinates
-        head_columns = tuple(f"#{x}" for x in range(1,13))
+    """This class creates a table with the columns already set."""
 
-        super().__init__(contariner, columns=head_columns, show="headings")
+    def __init__(self, container, coordinates=(0, 0)) -> None:
+        """Initializes the object of type Table.
+
+        Args:
+            container (Widget): It is where the component will be containe
+            coordinates (tuple): The 'x' and 'y' locations in the container"""
+
+        pos_x, pos_y = coordinates
+        head_columns = tuple(f"#{x}" for x in range(1, 13))
+
+        super().__init__(container, columns=head_columns, show="headings")
 
         self.heading("#1", text="CI", anchor=tkr.CENTER)
         self.heading("#2", text="Nro.manz", anchor=tkr.CENTER)
@@ -21,7 +31,6 @@ class Table(ttk.Treeview):
         self.heading("#10", text="18kg", anchor=tkr.CENTER)
         self.heading("#11", text="27kg", anchor=tkr.CENTER)
         self.heading("#12", text="43kg", anchor=tkr.CENTER)
-
 
         self.column("#1", width=99, anchor='c')
         self.column("#2", width=55, anchor='c')
