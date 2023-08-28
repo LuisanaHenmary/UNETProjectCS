@@ -68,27 +68,41 @@ class RegisterForm(tkr.Frame):
         self.__last_names = TextField(self, "Apellidos:", (10, 280))
         self.__phone_number = TextField(self, "Nro. Telf:", (460, 200))
         self.__email = TextField(self, "Correo:", (460, 240))
-        self.__serial_card_country = TextField(self, "Carnet de la\npatria serial:", (460, 280))
+
+        self.__serial_card_country = TextField(
+            self,
+            "Carnet de la\npatria serial:",
+            (460, 280)
+        )
 
         self.__birthdate = DateField(self, min_year=1900, coordinates=(340, 10))
 
-        self.__gender = BinaryField(self,
-                                    "Genero:",
-                                    binary_options=("Femenino", "Masculino"),
-                                    coordinates=(200, 100)
-                                    )
+        self.__gender = BinaryField(
+            self,
+            "Genero:",
+            binary_options=("Femenino", "Masculino"),
+            coordinates=(200, 70)
+        )
 
         self.__gas_cylinders = GasCylindersForm(self, (570, 10))
 
-        self.__is_street_leader = BinaryField(self,
-                                              "¿Es lider de calle?",
-                                              coordinates=(900, 10)
-                                              )
+        self.__is_street_leader = BinaryField(
+            self,
+            "¿Es lider de calle?",
+            coordinates=(900, 10)
+        )
 
-        self.__is_family_leader = BinaryField(self,
-                                              "¿Es Jefe de familia?",
-                                              coordinates=(900, 120)
-                                              )
+        self.__is_family_leader = BinaryField(
+            self,
+            "¿Es Jefe de familia?",
+            coordinates=(900, 120)
+        )
+
+        self.__is_committee_member = BinaryField(
+            self,
+            "¿Es mienbro del comite?",
+            coordinates=(900, 230)
+        )
 
         self.__observations = ObservationsField(self, coordinates=(10, 350))
         self.__address = AddressField(self, (570, 350))
@@ -109,6 +123,7 @@ class RegisterForm(tkr.Frame):
         self.__address.reboot_text_field()
         self.__is_street_leader.reboot_current_value()
         self.__is_family_leader.reboot_current_value()
+        self.__is_committee_member.reboot_current_value()
         self.__observations.reboot_text_field()
 
     def save_all(self) -> dict:
@@ -127,7 +142,9 @@ class RegisterForm(tkr.Frame):
         address_person = self.__address.get_address()
         is_leader = self.__is_street_leader.get_binary_value()
         is_family_leader = self.__is_family_leader.get_binary_value()
+        is_committee_member = self.__is_committee_member.get_binary_value()
         observations_person = self.__observations.get_observations()
+
 
         return {
             "Street": street_number,
@@ -143,5 +160,6 @@ class RegisterForm(tkr.Frame):
             "Address": address_person,
             "IsLeaderStreet": is_leader,
             "IsFamilyLeader": is_family_leader,
+            "IsCommitteeMember": is_committee_member,
             "Observations": observations_person
         }

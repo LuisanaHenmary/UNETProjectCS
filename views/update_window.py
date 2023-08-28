@@ -35,7 +35,7 @@ class UpdatePeople(tkr.Toplevel):
                 info (dict): A dictionary with the person's information.
                 people (list): People list."""
 
-        super().__init__(width=1010, height=415, background="#99CCFF")
+        super().__init__(width=1210, height=415, background="#99CCFF")
         self.resizable(False, False)
         self.title(f"Actualizando datos de {info['CI']}")
         self.__current_people = people
@@ -75,10 +75,18 @@ class UpdatePeople(tkr.Toplevel):
         self.__is_family_leader = BinaryField(
             self,
             "¿Es Jefe de familia?",
-            coordinates=(770, 120)
+            coordinates=(980, 10)
         )
 
         self.__is_family_leader.set_binary_value(info['IsFamilyLeader'])
+
+        self.__is_committee_member = BinaryField(
+            self,
+            "¿Es miembro del comite?",
+            coordinates=(770, 120)
+        )
+
+        self.__is_committee_member.set_binary_value(info['IsCommitteeMember'])
 
         self.__observations = ObservationsField(self, coordinates=(10, 220))
         self.__observations.set_text(info['Observations'])
@@ -98,6 +106,7 @@ class UpdatePeople(tkr.Toplevel):
         self.__data['GasCounters'] = self.__gas_cylinders.get_counters()
         self.__data['IsLeaderStreet'] = self.__is_street_leader.get_binary_value()
         self.__data['IsFamilyLeader'] = self.__is_family_leader.get_binary_value()
+        self.__data['IsCommitteeMember'] = self.__is_committee_member.get_binary_value()
         self.__data['Observations'] = self.__observations.get_observations()
         self.__data['Address'] = self.__address.get_address()
 

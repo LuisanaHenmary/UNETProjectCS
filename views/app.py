@@ -51,7 +51,7 @@ class App(ttk.Notebook):
             padx=5,
             pady=5,
             bd=0
-        ).place(x=900, y=270)
+        ).place(x=1130, y=480)
 
         self.add(self.__register_person, text="Registo")
         self.add(self.__records_t, text="Registros actuales")

@@ -42,6 +42,7 @@ class RecordsTable(tkr.Frame):
 
         self.__only_street_leader = tkr.BooleanVar()
         self.__only_family_leader = tkr.BooleanVar()
+        self.__only_committee_member = tkr.BooleanVar()
         self.__min_age = tkr.StringVar()
         self.__max_age = tkr.StringVar()
         self.__only_nkg = tkr.IntVar()
@@ -139,6 +140,16 @@ class RecordsTable(tkr.Frame):
             offvalue=False
         ).place(x=450, y=350)
 
+        ttk.Checkbutton(
+            self,
+            variable=self.__only_committee_member,
+            text="Solo miembros de comité",
+            style="CheckboxLabel.TCheckbutton",
+            command=self.all_filter,
+            onvalue=True,
+            offvalue=False
+        ).place(x=450, y=400)
+
         radio_button = ttk.Style()
         radio_button.configure(
             "RadioLabel.TRadiobutton",
@@ -153,7 +164,7 @@ class RecordsTable(tkr.Frame):
             text="Sin filtro de bombona",
             value=0,
             style="RadioLabel.TRadiobutton"
-        ).place(x=700, y=300)
+        ).place(x=750, y=300)
 
         ttk.Radiobutton(
             self,
@@ -162,7 +173,7 @@ class RecordsTable(tkr.Frame):
             text="Solo quienes tienen bombonas de 10kg",
             value=1,
             style="RadioLabel.TRadiobutton"
-        ).place(x=700, y=350)
+        ).place(x=750, y=350)
 
         ttk.Radiobutton(
             self,
@@ -171,7 +182,7 @@ class RecordsTable(tkr.Frame):
             text="Solo quienes tienen bombonas de 18kg",
             value=2,
             style="RadioLabel.TRadiobutton"
-        ).place(x=700, y=400)
+        ).place(x=750, y=400)
 
         ttk.Radiobutton(
             self,
@@ -180,7 +191,7 @@ class RecordsTable(tkr.Frame):
             text="Solo quienes tienen bombonas de 27kg",
             value=3,
             style="RadioLabel.TRadiobutton"
-        ).place(x=700, y=450)
+        ).place(x=750, y=450)
 
         ttk.Radiobutton(
             self,
@@ -189,7 +200,7 @@ class RecordsTable(tkr.Frame):
             text="Solo quienes tienen bombonas de 43kg",
             value=4,
             style="RadioLabel.TRadiobutton"
-        ).place(x=700, y=500)
+        ).place(x=750, y=500)
 
         tkr.Button(
             self,
@@ -305,6 +316,12 @@ class RecordsTable(tkr.Frame):
             filter_records = [
                 person for person in filter_records
                 if person["IsFamilyLeader"]
+            ]
+
+        if self.__only_committee_member.get():
+            filter_records = [
+                person for person in filter_records
+                if person["IsCommitteeMember"]
             ]
 
         if (not self.__min_age.get() == "") and (not self.__max_age.get() == ""):
