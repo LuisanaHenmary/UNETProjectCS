@@ -22,8 +22,9 @@ class UpdatePeople(tkr.Toplevel):
             __phone_number (TextField): It is a field to enter the phone number.
             __email (TextField): It is a field to enter the email.
             __gas_cylinders (GasCylindersForm): It is a field to establish the quantity of gas cylinders.
-            __is_street_leader (BinaryField): It is a field to establish if it is a block leader or not
-            __is_family_leader (BinaryField): It is a field to establish if he is a head of family or not
+            __is_street_leader (BinaryField): It is a field to establish if it is a block leader or not.
+            __is_family_leader (BinaryField): It is a field to establish if he is a head of family or not.
+            __is_community_spokesperson (BinaryField): It is a field to establish if it is a community spokesperson.
             __observations (ObservationsField): It is a field to enter some observations.
             __address (AddressField): It is a field to enter the address."""
 
@@ -80,13 +81,13 @@ class UpdatePeople(tkr.Toplevel):
 
         self.__is_family_leader.set_binary_value(info['IsFamilyLeader'])
 
-        self.__is_committee_member = BinaryField(
+        self.__is_community_spokesperson = BinaryField(
             self,
-            "¿Es miembro del comite?",
+            "¿Es vocero comunal?",
             coordinates=(770, 120)
         )
 
-        self.__is_committee_member.set_binary_value(info['IsCommitteeMember'])
+        self.__is_community_spokesperson.set_binary_value(info['IsCommunitySpokesperson'])
 
         self.__observations = ObservationsField(self, coordinates=(10, 220))
         self.__observations.set_text(info['Observations'])
@@ -106,7 +107,7 @@ class UpdatePeople(tkr.Toplevel):
         self.__data['GasCounters'] = self.__gas_cylinders.get_counters()
         self.__data['IsLeaderStreet'] = self.__is_street_leader.get_binary_value()
         self.__data['IsFamilyLeader'] = self.__is_family_leader.get_binary_value()
-        self.__data['IsCommitteeMember'] = self.__is_committee_member.get_binary_value()
+        self.__data['IsCommunitySpokesperson'] = self.__is_community_spokesperson.get_binary_value()
         self.__data['Observations'] = self.__observations.get_observations()
         self.__data['Address'] = self.__address.get_address()
 

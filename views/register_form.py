@@ -28,8 +28,9 @@ class RegisterForm(tkr.Frame):
             __gender (BinaryField): It is a field to select the genre.
             __gas_cylinders (GasCylindersForm): It is a field to establish the quantity of gas cylinders.
             __address (AddressField): It is a field to enter the address.
-            __is_street_leader (BinaryField): It is a field to establish if it is a block leader or not
-            __is_family_leader (BinaryField): It is a field to establish if he is a head of family or not
+            __is_street_leader (BinaryField): It is a field to establish if it is a block leader or not.
+            __is_family_leader (BinaryField): It is a field to establish if he is a head of family or not.
+            __is_community_spokesperson (BinaryField): It is a field to establish if it is a community spokesperson.
             __observations (ObservationsField): It is a field to enter some observations."""
 
     def __init__(self, container) -> None:
@@ -98,9 +99,9 @@ class RegisterForm(tkr.Frame):
             coordinates=(900, 120)
         )
 
-        self.__is_committee_member = BinaryField(
+        self.__is_community_spokesperson = BinaryField(
             self,
-            "¿Es mienbro del comite?",
+            "¿Es vocero comunal?",
             coordinates=(900, 230)
         )
 
@@ -123,7 +124,7 @@ class RegisterForm(tkr.Frame):
         self.__address.reboot_text_field()
         self.__is_street_leader.reboot_current_value()
         self.__is_family_leader.reboot_current_value()
-        self.__is_committee_member.reboot_current_value()
+        self.__is_community_spokesperson.reboot_current_value()
         self.__observations.reboot_text_field()
 
     def save_all(self) -> dict:
@@ -142,7 +143,7 @@ class RegisterForm(tkr.Frame):
         address_person = self.__address.get_address()
         is_leader = self.__is_street_leader.get_binary_value()
         is_family_leader = self.__is_family_leader.get_binary_value()
-        is_committee_member = self.__is_committee_member.get_binary_value()
+        is_community_spokesperson = self.__is_community_spokesperson.get_binary_value()
         observations_person = self.__observations.get_observations()
 
 
@@ -160,6 +161,6 @@ class RegisterForm(tkr.Frame):
             "Address": address_person,
             "IsLeaderStreet": is_leader,
             "IsFamilyLeader": is_family_leader,
-            "IsCommitteeMember": is_committee_member,
+            "IsCommunitySpokesperson": is_community_spokesperson,
             "Observations": observations_person
         }

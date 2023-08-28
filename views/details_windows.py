@@ -74,6 +74,13 @@ class DetailsPersonWindow(tkr.Toplevel):
             coordinates=(560, 20)
         )
 
+        Detail(
+            frame,
+            text=f"Vocero\ncomunal" if info["IsCommunitySpokesperson"] else "",
+            style="BigLabel.TLabel",
+            coordinates=(720, 20)
+        )
+
         fullname = f"{info['Names']} {info['Lastnames']}"
 
         Detail(
