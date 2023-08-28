@@ -29,8 +29,6 @@ class App(ttk.Notebook):
                 container (Widget): It is where the view will be contained."""
 
         super().__init__(container)
-        self.place(x=0, y=0)
-
         self.__current_records = []
         self.__register_person = RegisterForm(self)
         self.__records_t = RecordsTable(self)

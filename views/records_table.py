@@ -123,7 +123,7 @@ class RecordsTable(tkr.Frame):
         ttk.Checkbutton(
             self,
             variable=self.__only_street_leader,
-            text="Solo lideres de calle",
+            text="Lideres de calle",
             style="CheckboxLabel.TCheckbutton",
             command=self.all_filter,
             onvalue=True,
@@ -133,7 +133,7 @@ class RecordsTable(tkr.Frame):
         ttk.Checkbutton(
             self,
             variable=self.__only_family_leader,
-            text="Solo jefes de familia",
+            text="Jefes de familia",
             style="CheckboxLabel.TCheckbutton",
             command=self.all_filter,
             onvalue=True,
@@ -143,7 +143,7 @@ class RecordsTable(tkr.Frame):
         ttk.Checkbutton(
             self,
             variable=self.__only_committee_member,
-            text="Solo miembros de comité",
+            text="Voceros comunales",
             style="CheckboxLabel.TCheckbutton",
             command=self.all_filter,
             onvalue=True,
@@ -170,7 +170,7 @@ class RecordsTable(tkr.Frame):
             self,
             variable=self.__only_nkg,
             command=self.all_filter,
-            text="Solo quienes tienen bombonas de 10kg",
+            text="Poseen bombonas de 10kg",
             value=1,
             style="RadioLabel.TRadiobutton"
         ).place(x=750, y=350)
@@ -179,7 +179,7 @@ class RecordsTable(tkr.Frame):
             self,
             variable=self.__only_nkg,
             command=self.all_filter,
-            text="Solo quienes tienen bombonas de 18kg",
+            text="Poseen bombonas de 18kg",
             value=2,
             style="RadioLabel.TRadiobutton"
         ).place(x=750, y=400)
@@ -188,7 +188,7 @@ class RecordsTable(tkr.Frame):
             self,
             variable=self.__only_nkg,
             command=self.all_filter,
-            text="Solo quienes tienen bombonas de 27kg",
+            text="Poseen bombonas de 27kg",
             value=3,
             style="RadioLabel.TRadiobutton"
         ).place(x=750, y=450)
@@ -197,7 +197,7 @@ class RecordsTable(tkr.Frame):
             self,
             variable=self.__only_nkg,
             command=self.all_filter,
-            text="Solo quienes tienen bombonas de 43kg",
+            text="Poseen bombonas de 43kg",
             value=4,
             style="RadioLabel.TRadiobutton"
         ).place(x=750, y=500)
