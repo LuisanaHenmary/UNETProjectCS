@@ -2,3 +2,5 @@
 __pycache__
 people.json
 /myvenv/
+/build/
+/dist/
