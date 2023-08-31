@@ -1,6 +1,6 @@
 import tkinter as tkr
-from tkinter import ttk
-from views.utils import load_data, update_file
+from tkinter import ttk, messagebox
+from views.utils import load_data, update_file, search_index_person
 from views.records_table import RecordsTable
 from views.register_form import RegisterForm
 from styles.labels_style import (
@@ -72,10 +72,21 @@ class App(ttk.Notebook):
     def save_person(self):
         """Saves the person's registered information and updates the table."""
 
-        self.__current_records.append(self.__register_person.save_all())
+        new_person = self.__register_person.save_all()
 
-        update_file(self.__current_records)
+        if new_person is not None:
+            index, result = search_index_person(self.__current_records, int(new_person["CI"]))
 
-        self.__records_t.update_table(self.__current_records)
-        self.__records_t.all_filter()
-        self.__register_person.reset_all()
+            if index == -1:
+                self.__current_records.append(new_person)
+
+                update_file(self.__current_records)
+
+                self.__records_t.update_table(self.__current_records)
+                self.__records_t.all_filter()
+                self.__register_person.reset_all()
+            else:
+                messagebox.showerror('error', f"""Esta cedula ya esta registrada
+                CI: {result["CI"]}.
+                Nombre: {result["Names"]} {result["Lastnames"]}.
+                """)

@@ -1,6 +1,7 @@
 import tkinter as tkr
-from PIL import ImageTk, Image
 import os
+from tkinter import messagebox
+from PIL import ImageTk, Image
 from components.text_field import TextField
 from components.select_field import SelectField
 from components.date_field import DateField
@@ -146,21 +147,36 @@ class RegisterForm(tkr.Frame):
         is_community_spokesperson = self.__is_community_spokesperson.get_binary_value()
         observations_person = self.__observations.get_observations()
 
+        if len(ci_person) == 0:
+            messagebox.showerror('error', "Cedula obligatoria")
 
-        return {
-            "Street": street_number,
-            "CI": ci_person,
-            "Names": names,
-            "Lastnames": lastname,
-            "PhoneNumber": phone_number,
-            "Email": email_address,
-            "SerialCard": serial_card,
-            "Birthday": birthday,
-            "Gender": gender,
-            "GasCounters": gas_counters,
-            "Address": address_person,
-            "IsLeaderStreet": is_leader,
-            "IsFamilyLeader": is_family_leader,
-            "IsCommunitySpokesperson": is_community_spokesperson,
-            "Observations": observations_person
-        }
+        elif len(names) == 0:
+            messagebox.showerror('error', "Aunque sea el primer nombre")
+
+        else:
+
+            try:
+
+                if int(ci_person) <= 0:
+                    messagebox.showerror('error', "Solo numeros mayores a cero")
+                else:
+                    return {
+                        "Street": street_number,
+                        "CI": ci_person,
+                        "Names": names,
+                        "Lastnames": lastname,
+                        "PhoneNumber": phone_number,
+                        "Email": email_address,
+                        "SerialCard": serial_card,
+                        "Birthday": birthday,
+                        "Gender": gender,
+                        "GasCounters": gas_counters,
+                        "Address": address_person,
+                        "IsLeaderStreet": is_leader,
+                        "IsFamilyLeader": is_family_leader,
+                        "IsCommunitySpokesperson": is_community_spokesperson,
+                        "Observations": observations_person
+                    }
+
+            except ValueError:
+                messagebox.showerror('error', "Solo Numeros")
